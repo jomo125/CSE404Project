@@ -2,3 +2,4 @@
 /TFlite
 everything_labels.txt
 everything_model.tflite
+.env
