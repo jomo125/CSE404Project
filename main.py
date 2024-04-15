@@ -12,8 +12,8 @@ load_dotenv()
 
 PATH_TO_LABELS = "everything_labels.txt"
 PATH_TO_MODEL = "everything_model.tflite"
-
 GMAIL_PASSWORD = os.getenv('GMAIL_PASSWORD')
+detectable_objects = ["cat", "dog"]
 
 last_email_time = 0
 
@@ -69,8 +69,6 @@ while True:
     classes = interpreter.get_tensor(output_details[1]['index'])[0]
     scores = interpreter.get_tensor(output_details[2]['index'])[0]
     count = interpreter.get_tensor(output_details[3]['index'])[0]
-
-    detectable_objects = ["cat", "dog"]
 
     for i in range(int(count)):
         if scores[i] > 0.75:
